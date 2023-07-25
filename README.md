@@ -1,10 +1,19 @@
 **The University of Melbourne**
 # COMP30019 – Graphics and Interaction
 
-## Workshop 8
+## Workshop 9: Illumination and Shading
 
+<!-- <p align="center">
+  <img src="Gifs/game.gif">
+</p> -->
 
-# Introduction:
+<p align="center">
+  <a href="https://comp30019.github.io/Workshop-9-Solution/" alt="Play Online">
+    <img src="https://img.shields.io/static/v1?label=Play%20Solution&message=comp30019.github.io/Workshop-9-Solution/&color=blue&logo=unity" />
+  </a>
+</p>
+
+### Introduction
 
 In this workshop you will be investigating the _Phong illumination model_ implemented via 
 a custom Cg/HLSL shader in Unity. You will also be implementing different shading models
@@ -18,7 +27,7 @@ You will need to work with these files to start off with:
 * **GouraudShader.shader** – A Cg/HLSL shader implementing the Phong illumination 
   model at each vertex (Gouraud shading). It isn't yet correct, but it's close!
 
-### Tasks:
+### Tasks
 
 #### 1. Define the face normals
 
