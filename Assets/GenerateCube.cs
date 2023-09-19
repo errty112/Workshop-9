@@ -160,59 +160,15 @@ public class GenerateCube : MonoBehaviour
             Color.blue
         });
 
-        // Task 1: Define the correct normals (as unit vectors; currently they're all "zero")
-        var topNormal = new Vector3(0.0f, 0.0f, 0.0f);
-        var bottomNormal = new Vector3(0.0f, 0.0f, 0.0f);
-        var leftNormal = new Vector3(0.0f, 0.0f, 0.0f);
-        var rightNormal = new Vector3(0.0f, 0.0f, 0.0f);
-        var frontNormal = new Vector3(0.0f, 0.0f, 0.0f);
-        var backNormal = new Vector3(0.0f, 0.0f, 0.0f);
-
-        mesh.SetNormals(new[]
+        var normals = new Vector3[mesh.vertices.Length];
+        for (int i = 0; i < mesh.vertices.Length; i++)
         {
-            topNormal, // Top
-            topNormal,
-            topNormal,
-            topNormal,
-            topNormal,
-            topNormal,
+            var vertex = mesh.vertices[i];
+            normals[i] = vertex.normalized;
+        }
 
-            bottomNormal, // Bottom
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
-            bottomNormal,
-
-            leftNormal, // Left
-            leftNormal,
-            leftNormal,
-            leftNormal,
-            leftNormal,
-            leftNormal,
-
-            rightNormal, // Right
-            rightNormal,
-            rightNormal,
-            rightNormal,
-            rightNormal,
-            rightNormal,
-
-            frontNormal, // Front
-            frontNormal,
-            frontNormal,
-            frontNormal,
-            frontNormal,
-            frontNormal,
-
-            backNormal, // Back
-            backNormal,
-            backNormal,
-            backNormal,
-            backNormal,
-            backNormal
-        });
-
+        mesh.SetNormals(normals);
+        
         // Define the indices (same as workshop 2).
         var indices = Enumerable.Range(0, mesh.vertices.Length).ToArray();
         mesh.SetIndices(indices, MeshTopology.Triangles, 0);
